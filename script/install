@@ -9,8 +9,8 @@ cd "$(dirname $0)"/..
 export DOTFILES_ROOT=$(pwd -P)
 export DOTFILES_LIB="${BASH_SOURCE%/*}/lib"
 
-# echo "› brew bundle"
-# brew bundle
+echo "› brew bundle"
+brew bundle
 
 # Find the installers and run them iteratively
 find . -name install.sh | while read installer ; do 
