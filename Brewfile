@@ -17,6 +17,7 @@ brew 'make'
 brew 'cmake'
 brew 'llvm'
 
+cask 'alacritty'
 cask 'firefox'
 cask 'visual-studio-code'
 

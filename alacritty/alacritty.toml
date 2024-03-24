@@ -1,0 +1,62 @@
+live_config_reload = true
+
+import = [
+  "~/.config/alacritty/themes/catppuccin_macchiato.toml"
+]
+
+[bell]
+animation = "EaseOutExpo"
+color = "0xffffff"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 12.5
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 4000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+# [shell]
+# program = "/usr/local/bin/tmux"
+
+[window]
+dynamic_padding = false
+opacity = 1.0
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 90
+lines = 40
+
+[window.padding]
+x = 2
+y = 1

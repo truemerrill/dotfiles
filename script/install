@@ -3,11 +3,20 @@
 # Run all dotfiles installers.
 
 set -e
-
 cd "$(dirname $0)"/..
 
-echo "› brew bundle"
-brew bundle
+# Expose a utility library to each of the installer scripts
+export DOTFILES_ROOT=$(pwd -P)
+export DOTFILES_LIB="${BASH_SOURCE%/*}/lib"
 
-# find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# echo "› brew bundle"
+# brew bundle
+
+# Find the installers and run them iteratively
+find . -name install.sh | while read installer ; do 
+  sh -c "${installer}" ;
+done
+
+export -n DOTFILES_ROOT
+export -n DOTFILES_LIB
+
