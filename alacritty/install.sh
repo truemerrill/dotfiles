@@ -1,10 +1,7 @@
 #!/bin/sh
 
 source "$DOTFILES_LIB"
-mkdir -p "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config/"
 
-link_file "$DOTFILES_ROOT/alacritty/alacritty.toml" \
-  "$HOME/.config/alacritty/alacritty.toml"
-link_file "$DOTFILES_ROOT/alacritty/themes" \
-  "$HOME/.config/alacritty/themes"
+link_file "$DOTFILES/alacritty" "$HOME/.config/alacritty"
 
