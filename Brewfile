@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
 
 brew 'cmake'
 brew 'fzf'
@@ -20,5 +21,6 @@ brew 'wget'
 
 cask 'alacritty'
 cask 'firefox'
+cask 'font-fira-code-nerd-font'
 cask 'visual-studio-code'
 
