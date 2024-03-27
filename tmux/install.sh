@@ -3,6 +3,7 @@
 source "$DOTFILES_LIB"
 mkdir -p "$HOME/.config/"
 
-link_file "$DOTFILES/tmux" \
-  "$HOME/.config/tmux"
+if [ ! -L "$HOME/.config/tmux" ]; then
+  ln -sf "$DOTFILES/tmux" "$HOME/.config/tmux"
+fi
 
