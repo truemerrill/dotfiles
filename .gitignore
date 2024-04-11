@@ -1,5 +1,6 @@
 git/gitconfig.local.symlink
 Brewfile.lock.json
+*lock.json
 
 # Auto-created during install
 zsh/zshrc.symlink
