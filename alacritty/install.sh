@@ -3,5 +3,7 @@
 source "$DOTFILES_LIB"
 mkdir -p "$HOME/.config/"
 
-link_file "$DOTFILES/alacritty" "$HOME/.config/alacritty"
+if [ ! -L "$HOME/.config/alacritty" ]; then
+  ln -sf "$DOTFILES/alacritty" "$HOME/.config/alacritty"
+fi
 
