@@ -6,10 +6,14 @@ mkdir -p "$HOME/.micromamba"
 # Default python environment
 PYTHON_ENV="python"
 PYTHON_VERSION="3.12"
-
-# Default Julia environment
-JULIA_ENV="julia"
-JULIA_VERSION="1.10"
+PYTHON_PACKAGES="
+numpy
+scipy
+ipython
+jupyter
+pandas
+seaborn
+"
 
 
 # --- Conda -------------------------------------------------------------------
@@ -53,17 +57,13 @@ conda_env() {
 
 _setup_python() {
 	micromamba env create -n $PYTHON_ENV
-	micromamba install -n $PYTHON_ENV -y \
+	micromamba install -n $PYTHON_ENV -c defaults -y \
 		"python=$PYTHON_VERSION"
+
+	while read -r package; do
+		micromamba install -n $PYTHON_ENV -c defaults -y "$package"
+	done <<< "$PYTHON_PACKAGES"
 }
 
 conda_env $PYTHON_ENV _setup_python
-
-_setup_julia() {
-	micromamba env create -n $JULIA_ENV
-	micromamba install -n $JULIA_ENV -y \
-		"julia=$JULIA_VERSION"
-}
-
-conda_env $JULIA_ENV _setup_julia
 
