@@ -65,5 +65,30 @@ _setup_python() {
 	done <<< "$PYTHON_PACKAGES"
 }
 
+_setup_python_version() {
+	local python_env=$1
+	local python_version=$2
+
+	micromamba env create -n $python_env
+	micromamba install -n $python_env -c defaults -y \
+		"python=$python_version"
+}
+
+_setup_python_39() {
+	_setup_python_version "python-3.9" 3.9
+}
+
+_setup_python_310() {
+	_setup_python_version "python-3.10" 3.10
+}
+
+_setup_python_311() {
+	_setup_python_version "python-3.11" 3.11
+}
+
+
 conda_env $PYTHON_ENV _setup_python
+conda_env "python-3.9" _setup_python_39
+conda_env "python-3.10" _setup_python_310
+conda_env "python-3.11" _setup_python_311
 
