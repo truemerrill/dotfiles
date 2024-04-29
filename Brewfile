@@ -24,5 +24,7 @@ brew 'wget'
 cask 'alacritty'
 cask 'firefox'
 cask 'font-fira-code-nerd-font'
+cask 'slack'
+cask 'spotify'
 cask 'visual-studio-code'
 
