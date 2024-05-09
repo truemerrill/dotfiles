@@ -4,11 +4,23 @@ get_conda_env_path() {
   local path=$(
     micromamba env list |
     grep -E "$env" |
-    sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+    sed 's/.* \([^ ]*\)$/\1/'
   )
-  echo "$path/bin"
+  if [ -n "$path" ]; then
+    echo "$path/bin"
+  else
+    echo ""
+  fi
 }
 
-export PATH="$PATH:$(get_conda_env_path python)"
-export PATH="$PATH:$(get_conda_env_path julia)"
+python_path=$(get_conda_env_path python-3.12)
+julia_path=$(get_conda_env_path julia)
+
+if [ -n "$python_path" ]; then
+  export PATH="$PATH:$python_path"
+fi
+
+if [ -n "$julia_path" ]; then
+  export PATH="$PATH:$julia_path"
+fi
 

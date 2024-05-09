@@ -4,7 +4,7 @@ source "$DOTFILES_LIB"
 mkdir -p "$HOME/.micromamba"
 
 # Default python environment
-PYTHON_ENV="python"
+PYTHON_ENV="python-3.12"
 PYTHON_VERSION="3.12"
 PYTHON_PACKAGES="
 numpy
